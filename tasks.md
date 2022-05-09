@@ -82,7 +82,10 @@ SELECT * FROM matches WHERE division_code = 'E0' ORDER BY fthg + ftag DESC, fthg
 
 ```sql
 <!-- Copy solution here -->
-SELECT division_code, season FROM matches WHERE division_code = 'E0' ORDER BY fthg + ftag DESC LIMIT 1;
+Looked at solution
+SELECT division_code, season, SUM (fthg + ftag) FROM matches GROUP BY division_code, season ORDER BY sum DESC LIMIT 1;
+
+SELECT name FROM divisions WHERE code = 'EC';
 
 ```
 
