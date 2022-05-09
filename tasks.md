@@ -31,7 +31,7 @@ SELECT name FROM divisions WHERE country = 'Scotland';
 ```sql
 <!-- Copy solution here -->
 SELECT code FROM divisions WHERE name = 'Bundesliga';
-SELECT COUNT (*) FROM matches WHERE division_code = 'D1' AND hometeam = 'Freiburg' OR awayteam = 'Freiburg';
+SELECT COUNT (*) FROM matches WHERE division_code = 'D1' AND (hometeam = 'Freiburg' OR awayteam = 'Freiburg');
 
 ```
 
@@ -39,15 +39,17 @@ SELECT COUNT (*) FROM matches WHERE division_code = 'D1' AND hometeam = 'Freibur
 
 ```sql
 <!-- Copy solution here -->
-
-
+Looked at solution:
+SELECT DISTINCT hometeam FROM matches WHERE hometeam LIKE '%City';
 ```
 
 6) How many different teams have played in matches recorded in a French division?
 
 ```sql
 <!-- Copy solution here -->
-
+Looked at solution:
+Pay attention to the brackets
+SELECT COUNT (DISTINCT hometeam) FROM matches WHERE division_code LIKE 'F%';
 
 
 ```
@@ -64,7 +66,7 @@ SELECT * FROM matches WHERE hometeam = 'Huddersfield' AND awayteam = 'Swansea';
 
 ```sql
 <!-- Copy solution here -->
-SELECT COUNT(*) FROM matches WHERE division_code = 'N1' AND ftr = 'D';
+SELECT COUNT(*) FROM matches WHERE division_code = 'N1' AND (ftr = 'D') AND (season >= 2010 AND season <= 2015);
 
 ```
 
